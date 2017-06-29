@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core"  
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">  
+
+    <h:head>  
+
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <meta charset="utf-8" />
+        <title>Export Charts To PDF</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="shortcut icon" href="#{resource['/images/favicon.ico']}" />
+
+
+        <!-- BEGIN CORE CSS FRAMEWORK -->                
+        <h:outputStylesheet name="css/bootstrap/css/bootstrap.min.css" />
+        <h:outputStylesheet name="css/bootstrap/css/bootstrap-responsive.min.css" />   
+        <h:outputStylesheet name="css/font-awesome/css/font-awesome.css" /> 
+        <h:outputStylesheet name="css/animate.min.css" />              
+        <!-- END CORE CSS FRAMEWORK -->        
+
+        <!-- BEGIN CSS TEMPLATE -->                
+        <h:outputStylesheet name="css/style.css" /> 
+        <h:outputStylesheet name="css/responsive.css" />
+        <h:outputStylesheet name="css/custom-icon-set.css" />               
+        <!-- END CSS TEMPLATE -->
+
+        <h:outputStylesheet name="css/main.css" /> 
+        <h:outputScript name="css/bootstrap/js/bootstrap.min.js" /> 
+        <h:outputScript name="js/jquery.sidr.min.js" /> 
+        <h:outputScript name="js/breakpoints.js" /> 
+        <h:outputScript name="js/core.js" />  
+        <h:outputScript name="js/main.js" />                       
+    </h:head>  
+
+    <h:body>  
+
+        <!-- BEGIN HEADER -->
+
+
+        <p:idleMonitor />
+        <!-- BEGIN CONTAINER -->
+
+        <div class="page-container row-fluid">
+            <!-- BEGIN SIDEBAR -->
+            <div class="page-sidebar" id="main-menu"> 
+                <!-- BEGIN MINI-PROFILE -->
+                <div class="user-info-wrapper">	
+                    <div class="profile-wrapper">
+                        <img src="#{resource['images/avatar.png']}"  alt="" data-src="#{resource['images/avatar.png']}" data-src-retina="#{resource['images/avatar.png']}" width="69" height="69" />
+                    </div>
+                    <div class="user-info">
+                        <div class="greeting">Export</div>
+                        <div class="username">Charts</div>                        
+                    </div>
+                </div>
+                <!-- END MINI-PROFILE -->
+
+                <!-- BEGIN SIDEBAR MENU -->	
+                <p class="menu-title">BROWSE <span class="pull-right"><a href="javascript:;"><i class="fa fa-refresh"></i></a></span></p>
+                <ul>	                   
+					<li class=""> 
+						<a href="/ExportChartsToPDF/primefaces/charts.xhtml"> <i class="fa fa-bar-chart" aria-hidden="true"></i>
+							<span class="title">Export Charts</span> </a> 
+					</li>
+                </ul>
+                <div class="clearfix"></div>
+                <!-- END SIDEBAR MENU --> 
+            </div>
+            <div class="footer-widget">	
+
+                <a href="http://stackoverflow.com/users/833031/hatem-alimam">
+                    <img src="http://stackoverflow.com/users/flair/833031.png?theme=dark" width="208" height="58" alt="profile for Hatem Alimam at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Hatem Alimam at Stack Overflow, Q&amp;A for professional and enthusiast programmers" />
+                </a>
+            </div>
+            <!-- END SIDEBAR --> 
+            <!-- BEGIN PAGE CONTAINER-->
+            <div class="page-content">                                 
+                <div class="clearfix"></div>
+                <div class="content">                     
+                    <ui:insert name="content" />
+                </div>
+            </div>
+        </div>
+
+        <!-- BEGIN CHAT -->
+
+        <div id="sidr" class="sidr right">
+
+        </div>
+        <script type="text/javascript">
+
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-19105826-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+        </script>
+    </h:body>  
+</html>  

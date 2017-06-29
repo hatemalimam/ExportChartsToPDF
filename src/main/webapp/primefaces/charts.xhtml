@@ -1,0 +1,96 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:f="http://java.sun.com/jsf/core"  
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/default/main.xhtml">
+    <ui:define name="content">
+		<h:form id="form">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="grid simple">
+						<div class="grid-body no-border"> 
+
+							<div class="row">
+								<div class="col-md-12 text-center m-b-50 m-t-50">
+									<p:commandLink onclick="exportChartInPDF()" styleClass="btn btn-primary">
+										<i class="fa fa-file-pdf-o m-r-5" aria-hidden="true"></i>
+										Export Charts To PDF
+									</p:commandLink>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-8 col-sm-8 col-xs-8">
+									<p:chart type="line" model="#{mainBean.lineModel1}" style="height:300px;" widgetVar="lineWV"/>                                                   
+								</div>
+							</div>
+							<div class="row m-t-50">
+								<div class="col-md-8 col-sm-8 col-xs-8">
+									<p:chart type="bubble" model="#{mainBean.bubbleModel1}" widgetVar="bubbleWV" />                                               
+								</div>
+							</div>
+
+							<div class="row m-t-50">
+								<div class="col-md-8 col-sm-8 col-xs-8">
+									<p:chart type="bar" model="#{mainBean.barModel}" style="height:300px" widgetVar="barWV" />                                            
+								</div>
+							</div>
+
+							<div class="row m-t-50">
+								<div class="col-md-8 col-sm-8 col-xs-8">
+									<p:chart type="pie" model="#{mainBean.pieModel1}" style=";height:300px" widgetVar="pieWV" />                                         
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12 text-center m-t-50">
+									<p:commandLink onclick="exportChartInPDF()" styleClass="btn btn-primary">
+										<i class="fa fa-file-pdf-o m-r-5" aria-hidden="true"></i>
+										Export Chart To PDF
+									</p:commandLink>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</h:form>
+
+		<h:outputScript name="js/pdfmake/pdfmake.min.js" />
+		<h:outputScript name="js/pdfmake/vfs_fonts.js" />
+
+		<script>
+			function exportChartInPDF() {
+				var docDefinition = {
+					content: [
+						'Line Chart',
+						{
+							image: $(PF('lineWV').exportAsImage()).attr('src'),
+							width: 520
+						},
+						'Area Chart',
+						{
+							image: $(PF('bubbleWV').exportAsImage()).attr('src'),
+							width: 520
+						},
+						'Bar Chart',
+						{
+							image: $(PF('barWV').exportAsImage()).attr('src'),
+							width: 520
+						},
+						'Pie Chart',
+						{
+							image: $(PF('pieWV').exportAsImage()).attr('src'),
+							width: 520
+						},
+					]
+				}
+				pdfMake.createPdf(docDefinition).open();
+				pdfMake.createPdf(docDefinition).download('primefaces-charts.pdf');
+			}
+		</script>
+    </ui:define>
+</ui:composition> 
+
+

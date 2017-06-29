@@ -1,0 +1,9 @@
+.metadata/
+.classpath
+.project
+.settings/
+target/
+.DS_Store
+.tern-project
+nb-configuration.xml
+faces-config.NavData
